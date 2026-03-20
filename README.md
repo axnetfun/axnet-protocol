@@ -18,7 +18,7 @@ Unlike traditional bots that require your private keys, Axnet is **non-custodial
 ## Protocol Specification
 
 ```mermaid
-sequence_diagram
+sequenceDiagram:
     participant A as AI Agent (Client)
     participant G as Axnet Gateway (Server)
     participant S as Solana Network
