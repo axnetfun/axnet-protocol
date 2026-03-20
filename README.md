@@ -15,6 +15,36 @@ Unlike traditional bots that require your private keys, Axnet is **non-custodial
 2. **You** sign the transaction locally in your own secure runtime (Browser, Server, or Agent VM).
 3. **Axnet** broadcasts the signed payload to the cluster.
 
+## Protocol Specification
+
+```mermaid
+sequence_diagram
+    participant A as AI Agent (Client)
+    participant G as Axnet Gateway (Server)
+    participant S as Solana Network
+
+    Note over A, G: 1. Initial Request
+    A->>G: POST /swap {input, output, amount}
+
+    Note over G: 2. Challenge Generation
+    Note over G: HTTP 402 Payment Required
+    Note over G: Header: PAYMENT-REQUIRED (Base64)
+    Note over G: Body: {asset, amount, mint, merchantAta, unsignedTxBase64}
+    G-->>A: 402 Response
+
+    Note over A: 3. Agent Local Execution
+    Note over A: Decode Base64 Metadata
+    Note over A: Sign Transaction Locally (Private Key)
+
+    Note over A, G: 4. Settlement & Validation
+    A->>G: RETRY POST /swap
+    Note over A: Header: PAYMENT-SIGNATURE (sig_abc123...)
+    
+    G->>S: Verify Signature & Broadcast
+    S-->>G: Transaction Confirmed (Alpenglow Finality)
+    
+    G-->>A: HTTP 200 OK {success: true, txid: "..."}
+```
 ---
 
 ## 📂 Repository Status: [PRE-LAUNCH]
