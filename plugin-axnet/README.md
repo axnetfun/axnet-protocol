@@ -1,256 +1,116 @@
-# Plugin Quick Starter
+# @axnetfun/plugin-axnet
 
-A minimal backend-only plugin template for ElizaOS. This template provides a clean starting point for creating simple plugins without frontend complexity.
+![Axnet Banner](./images/banner.png)
 
-## Overview
+<p align="center">
+  <img src="./images/logo.png" width="150" alt="Axnet Logo">
+</p>
 
-This quick-starter template is ideal for:
+The official ElizaOS plugin for **Axnet**, the stateless x402 execution layer for Solana. This plugin enables agents to perform atomic, non-custodial token swaps using Jupiter liquidity without requiring API keys or centralized accounts.
 
-- Backend-only plugins
-- Simple API integrations
-- Services and providers
-- Actions without UI components
-- Lightweight extensions
+## 🌟 Key Features
 
-## Structure
+- **x402 Protocol**: Implements the "Payment Required" handshake for secure, dual-transaction execution.
+- **Stateless & Keyless**: Private keys never leave the agent's environment.
+- **Jupiter Liquidity**: Access the deepest liquidity on Solana via the Axnet Go-engine.
+- **ERC-8004 Verified**: Fully integrated with the Agent Registry for verified infrastructure identity.
 
-```
-plugin-axnet/
-├── src/
-│   ├── __tests__/          # Test directory
-│   │   ├── e2e/            # E2E tests
-│   │   │   ├── plugin-axnet.e2e.ts
-│   │   │   └── README.md
-│   │   ├── plugin.test.ts  # Component tests
-│   │   └── test-utils.ts   # Test utilities
-│   ├── plugin.ts           # Main plugin implementation (exports tests)
-│   └── index.ts            # Plugin export
-├── scripts/
-│   └── install-test-deps.js # Test dependency installer
-├── tsup.config.ts          # Build configuration
-├── tsconfig.json           # TypeScript config
-├── package.json            # Minimal dependencies
-└── README.md               # This file
+## 🏗️ Installation
+
+```bash
+bun add @axnetfun/plugin-axnet
 ```
 
-## Getting Started
+## ⚙️ Configuration
 
-1. **Create your plugin:**
+Add the following to your agent's `.env` file:
 
-   ```bash
-   elizaos create my-plugin
-   # Select: Plugin
-   # Select: Quick Plugin (Backend Only)
-   ```
+```bash
+# Axnet Gateway Settings
+AXNET_API_URL=[https://api.axnet.fun/swap](https://api.axnet.fun/swap)
+AXNET_REGISTRY_ID=DEpPuMuVZGUAJtN5gVxUNFQUL8jsjF26T781gMT1twE
 
-2. **Navigate to your plugin:**
+# Solana Settings (Required for signing)
+SOLANA_PUBLIC_KEY=your_agent_public_key
+SOLANA_PRIVATE_KEY=your_agent_private_key
+```
 
-   ```bash
-   cd my-plugin
-   ```
+## 🚀 Usage
 
-3. **Install dependencies:**
-
-   ```bash
-   bun install
-   ```
-
-4. **Start development:**
-   ```bash
-   bun run dev
-   ```
-
-## Key Features
-
-### Minimal Dependencies
-
-- Only essential packages (`@elizaos/core`, `zod`)
-- No frontend frameworks or build tools
-- Fast installation and builds
-
-### Comprehensive Testing
-
-- Component tests with Bun test runner for unit testing
-- E2E tests with ElizaOS test runner for integration testing
-- Quick test execution with focused test suites
-
-### Backend Focus
-
-- API routes for server-side functionality
-- Services for state management
-- Actions for agent capabilities
-- Providers for contextual data
-
-## Plugin Components
-
-### Actions
-
-Define agent capabilities:
+Register the plugin in your ElizaOS character configuration:
 
 ```typescript
-const myAction: Action = {
-  name: 'MY_ACTION',
-  description: 'Description of what this action does',
-  validate: async (runtime, message, state) => {
-    // Validation logic
-    return true;
-  },
-  handler: async (runtime, message, state, options, callback) => {
-    // Action implementation
-    return { success: true, data: {} };
-  },
+import { axnetPlugin } from "@axnetfun/plugin-axnet";
+
+export const character = {
+    name: "AxnetAgent",
+    plugins: [axnetPlugin],
+    // ... rest of config
 };
 ```
 
-### Services
+### **Natural Language Intents**
 
-Manage plugin state:
+Once active, the agent can process commands like:
+- *"Swap 1 SOL for USDC using Axnet"*
+- *"Check the price of BONK and buy 50 USDC worth"*
+- *"Execute a swap with 0.5% slippage on Axnet"*
 
-```typescript
-export class MyService extends Service {
-  static serviceType = 'my-service';
+---
 
-  async start() {
-    // Initialize service
-  }
+## 🛠️ How it Works: The x402 Handshake
 
-  async stop() {
-    // Cleanup
-  }
-}
-```
+Axnet utilizes a unique **Dual-Transaction Bundle** to ensure atomic settlement:
 
-### Providers
+1. **Request**: The plugin sends the swap intent to the Axnet Gateway.
+2. **Challenge**: The gateway returns an **HTTP 402 Payment Required** error containing two unsigned transactions: **Transaction A (Service Fee)** and **Transaction B (Jupiter Swap)**.
+3. **Local Signing**: The plugin signs both transactions locally using the agent's secure wallet. **Private keys never leave the client.**
+4. **Settlement**: The plugin retries the POST request with the signed transactions and the session header.
+5. **Coordination**: The Axnet Go-engine validates and broadcasts the bundle to the Solana cluster, ensuring both transactions are processed together.
 
-Supply contextual information:
+---
 
-```typescript
-const myProvider: Provider = {
-  name: 'MY_PROVIDER',
-  description: 'Provides contextual data',
-  get: async (runtime, message, state) => {
-    return {
-      text: 'Provider data',
-      values: {},
-      data: {},
-    };
-  },
-};
-```
-
-### API Routes
-
-Backend endpoints:
-
-```typescript
-routes: [
-  {
-    name: 'api-endpoint',
-    path: '/api/endpoint',
-    type: 'GET',
-    handler: async (req, res) => {
-      res.json({ data: 'response' });
-    },
-  },
-];
-```
-
-## Development Commands
+## 🧪 Testing
 
 ```bash
-# Start in development mode with hot reload
-bun run dev
-
-# Start in production mode
-bun run start
-
-# Build the plugin
-bun run build
-
-# Run tests
+# Run unit tests for x402 logic
 bun test
-
-# Format code
-bun run format
 ```
 
-## Testing
+---
 
-ElizaOS employs a dual testing strategy:
+## 🤝 Resources
 
-1. **Component Tests** (`src/__tests__/*.test.ts`)
+- **Website**: [axnet.fun](https://axnet.fun)
+- **Registry**: [8004.qnt.sh](https://8004.qnt.sh/)
+- **X (Twitter)**: [@axnetfun](https://x.com/axnetfun)
+- **MCP Endpoint**: `https://mcp.axnet.fun/sse`
 
-   - Run with Bun's native test runner
-   - Fast, isolated tests using mocks
-   - Perfect for TDD and component logic
+---
 
-2. **E2E Tests** (`src/__tests__/e2e/*.e2e.ts`)
-   - Run with ElizaOS custom test runner
-   - Real runtime with actual database (PGLite)
-   - Test complete user scenarios
+## 🏗️ Verified Identity
 
-### Test Structure
+Axnet is a registered and verified infrastructure tool on the **ERC-8004 Agent Registry**.
+* **Asset ID:** `DEpPuMUvZGHUAJtN5gVxUNFQUL8jsjF26T781gMT1twE`
+* **Registry:** [8004.qnt.sh](https://8004.qnt.sh/)
+* **Reputation:** Powered by **ATOM Engine** (Tier: **Bronze** - *Indexing Active*)
+* **Dispute Resolver:** `solana:8oo4:ATOM-SEAL-v1`
 
-```
-src/
-  __tests__/              # All tests live inside src
-    *.test.ts            # Component tests (use Bun test runner)
-    e2e/                 # E2E tests (use ElizaOS test runner)
-      plugin-axnet.e2e.ts  # E2E test suite
-      README.md          # E2E testing documentation
-  plugin.ts              # Export tests here: tests: [QuickStarterPluginTestSuite]
-```
+---
 
-### Running Tests
+## 🛰️ Technical Stack
 
-```bash
-# Run all tests (component + e2e)
-elizaos test
+- **Protocol**: x402 (HTTP 402 "Payment Required")
+- **Registry**: ERC-8004 (Solana Implementation)
+- **Reputation**: ATOM Engine (SEAL-v1 Dispute Resolver)
+- **Liquidity**: Jupiter Aggregator
+- **Backend**: Go (High-concurrency execution engine)
 
-# Component tests only
-elizaos test component
-# or
-bun test
+---
 
-# E2E tests only
-elizaos test e2e
-```
+## 📄 License
 
-### Writing Component Tests
+MIT
 
-```typescript
-import { describe, it, expect } from 'bun:test';
-
-describe('My Plugin', () => {
-  it('should work correctly', () => {
-    expect(true).toBe(true);
-  });
-});
-```
-
-## Publishing
-
-1. Update `package.json` with your plugin details
-2. Build your plugin: `bun run build`
-3. Publish: `elizaos publish`
-
-## When to Use Quick Starter
-
-Use this template when you need:
-
-- ✅ Backend-only functionality
-- ✅ Simple API integrations
-- ✅ Lightweight plugins
-- ✅ Fast development cycles
-- ✅ Minimal dependencies
-
-Consider the full plugin-axnet if you need:
-
-- ❌ React frontend components
-- ❌ Complex UI interactions
-- ❌ E2E testing with Cypress
-- ❌ Frontend build pipeline
-
-## License
-
-This template is part of the ElizaOS project.
+---
+*The stateless rails for the Solana agent economy.*
