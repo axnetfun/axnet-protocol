@@ -114,4 +114,3 @@ The Axnet SDK implements a **Stateless Dual-Hop** architecture. It abstracts the
 
 ---
 **Registry ID**: `DEpPuMuVZGUAJtN5gVxUNFQUL8jsjF26T781gMT1twE`  
-Built for the [Dexter AI Marketplace](https://dexter.cash). 🛰️🧱

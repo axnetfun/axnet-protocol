@@ -1,6 +1,6 @@
 {
   "name": "@axnetfun/axnet-sdk-ts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Stateless x402 Swap SDK for Solana Agents",
   "author": "Axnet",
   "license": "MIT",
