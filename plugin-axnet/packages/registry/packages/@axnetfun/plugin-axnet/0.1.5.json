@@ -1,0 +1,28 @@
+{
+  "name": "@axnetfun/plugin-axnet",
+  "version": "0.1.5",
+  "description": "Stateless x402 Gateway for Solana Agents using Jupiter liquidity",
+  "type": "module",
+  "platform": "node",
+  "runtimeVersion": "1.7.2",
+  "repository": "git+https://github.com/axnetfun/axnet-protocol.git",
+  "maintainers": [
+    "axnetfun"
+  ],
+  "publishedAt": "2026-03-28T23:28:25.093Z",
+  "publishedBy": "axnetfun",
+  "dependencies": {
+    "@elizaos/core": "1.7.2",
+    "@solana/web3.js": "^1.98.4",
+    "zod": "^4.3.5"
+  },
+  "tags": [
+    "plugin",
+    "elizaos",
+    "solana",
+    "x402",
+    "jupiter",
+    "defi"
+  ],
+  "license": "MIT"
+}

@@ -1,0 +1,23 @@
+{
+  "v1": {
+    "packages": {}
+  },
+  "v2": {
+    "packages": {
+      "@axnetfun/plugin-axnet": {
+        "name": "@axnetfun/plugin-axnet",
+        "description": "Stateless x402 Gateway for Solana Agents using Jupiter liquidity",
+        "type": "module",
+        "versions": {
+          "0.1.5": {
+            "version": "0.1.5",
+            "runtimeVersion": "1.7.2",
+            "platform": "node",
+            "publishedAt": "2026-03-28T23:28:25.093Z",
+            "published": false
+          }
+        }
+      }
+    }
+  }
+}

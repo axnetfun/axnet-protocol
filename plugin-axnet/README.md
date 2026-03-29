@@ -2,10 +2,6 @@
 
 ![Axnet Banner](./images/banner.jpg)
 
-<p align="center">
-  <img src="./images/logo.jpg" width="150" alt="Axnet Logo">
-</p>
-
 The official ElizaOS plugin for **Axnet**, the stateless x402 execution layer for Solana. This plugin enables agents to perform atomic, non-custodial token swaps using Jupiter liquidity without requiring API keys or centralized accounts.
 
 ## 🌟 Key Features
