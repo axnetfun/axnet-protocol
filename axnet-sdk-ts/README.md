@@ -102,6 +102,7 @@ The Axnet SDK implements a **Stateless Dual-Hop** architecture. It abstracts the
 #### `AxnetSwapParams`
 - `userPublicKey`: The base58 address of the swapping wallet.
 - `inputMint`: Source token mint address.
+- `inputDecimals`: Decimal precision of the input token (9 for SOL, 6 for USDC).
 - `outputMint`: Destination token mint address.
 - `amount`: String or Number (human-readable format).
 - `slippageBps`: (Optional) Slippage in basis points (e.g., 50 = 0.5%).
