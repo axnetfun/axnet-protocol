@@ -2,6 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/@axnetfun/plugin-axnet.svg)](https://www.npmjs.com/package/@axnetfun/plugin-axnet)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![smithery badge](https://smithery.ai/badge/axnet/core)](https://smithery.ai/servers/axnet/core)
 
 **Axnet** is a stateless, keyless execution layer for Solana. It enables autonomous agents to integrate **Jupiter** liquidity via the **x402 (Payment Required)** protocol—removing the need for API keys, accounts, or centralized subscriptions.
 
