@@ -1,0 +1,9 @@
+{
+    "name": "@axnet/skill-swaps",
+    "version": "1.0.0",
+    "type": "agent-skill",
+    "skill": {
+        "name": "axnet-swaps",
+        "manifest": "SKILL.md"
+    }
+}
