@@ -15,7 +15,7 @@ Before attempting a swap, determine if you are **Building** or **Executing**:
 
 ### Scenario A: Building a Custom Agent (SDK)
 If the developer wants to integrate Axnet into their codebase:
-1. **Install:** `npm install @axnet/sdk`
+1. **Install:** `npm install @axnetfun/axnet-sdk-ts`
 2. **Initialize:** `const sdk = new AxnetSDK();`
 3. **Execute Pattern:**
    - Use `sdk.swap(params, signerCallback, handshakeCallback)`.
