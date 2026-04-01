@@ -1,3 +1,10 @@
+---
+name: axnet-swaps
+description: Instructions for executing stateless Solana token swaps with x402 payment handling. Use when a user wants to trade, buy, or swap tokens on Solana.
+version: 1.0.0
+license: MIT
+---
+
 ## ⌨️ Implementation Logic
 When using the `axnet-sdk-ts`, follow this structural pattern:
 
