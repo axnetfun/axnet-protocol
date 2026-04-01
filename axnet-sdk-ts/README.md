@@ -1,4 +1,4 @@
-# @axnetfun/sdk-ts 🛰️
+# @axnetfun/axnet-sdk-ts 🛰️
 
 The official TypeScript SDK for **Axnet**, the first stateless, x402-powered swap gateway for Solana Agents. 
 
@@ -16,7 +16,7 @@ Axnet abstracts the complexity of the x402 "Payment Required" handshake, allowin
 ### Installation
 
 ```bash
-npm install @axnetfun/sdk-ts
+npm install @axnetfun/axnet-sdk-ts
 ```
 
 ## 🚀 Basic Usage
@@ -24,7 +24,7 @@ npm install @axnetfun/sdk-ts
 The following example demonstrates how to execute a swap using a local `Keypair`. Note that no RPC `Connection` is required, as Axnet handles the broadcast.
 
 ```typescript
-import { AxnetSDK } from '@axnetfun/sdk-ts';
+import { AxnetSDK } from '@axnetfun/axnet-sdk-ts';
 import { Keypair } from '@solana/web3.js';
 
 // 1. Initialize the Stateless SDK
