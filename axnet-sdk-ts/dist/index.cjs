@@ -26,7 +26,7 @@ module.exports = __toCommonJS(index_exports);
 var import_web3 = require("@solana/web3.js");
 var import_buffer = require("buffer");
 var AxnetSDK = class {
-  constructor(baseUrl = "https://api.axnet.fun") {
+  constructor(baseUrl = "https://api.axnet.tech") {
     this.baseUrl = baseUrl;
   }
   /**

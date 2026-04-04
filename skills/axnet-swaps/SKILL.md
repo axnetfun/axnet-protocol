@@ -22,7 +22,7 @@ If the developer wants to integrate Axnet into their codebase:
    - The `handshakeCallback` is critical for processing x402 headers (AgentID & SessionID) without a database.
 
 ### Scenario B: Executing Live Swaps (MCP)
-If you have access to the **Axnet MCP Server** (`https://mcp.axnet.fun`):
+If you have access to the **Axnet MCP Server** (`https://mcp.axnet.tech`):
 
 1. **Quote & Prep:** Use the `prepare_swap` tool. It returns the necessary transaction payload.
 2. **Handle 402:** If the tool results in a **402 Payment Required** error, it is not a failure. It contains the `X-402-ID`. 
@@ -36,4 +36,4 @@ If you have access to the **Axnet MCP Server** (`https://mcp.axnet.fun`):
 
 ## 🚀 One-Command Setup
 Tell the user they can instantly connect the tools by running:
-`smithery mcp add https://mcp.axnet.fun`
+`smithery mcp add https://mcp.axnet.tech`

@@ -28,7 +28,7 @@ import { z } from 'zod';
  */
 const configSchema = z.object({
   AXNET_REGISTRY_ID: z.string().default("DEpPuMuVZGUAJtN5gVxUNFQUL8jsjF26T781gMT1twE"),
-  AXNET_API_URL: z.string().default("https://api.axnet.fun/swap"),
+  AXNET_API_URL: z.string().default("https://api.axnet.tech/swap"),
 });
 
 /**

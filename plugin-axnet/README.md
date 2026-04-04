@@ -23,7 +23,7 @@ Add the following to your agent's `.env` file:
 
 ```bash
 # Axnet Gateway Settings
-AXNET_API_URL=[https://api.axnet.fun/swap](https://api.axnet.fun/swap)
+AXNET_API_URL=[https://api.axnet.tech/swap](https://api.axnet.tech/swap)
 AXNET_REGISTRY_ID=DEpPuMuVZGUAJtN5gVxUNFQUL8jsjF26T781gMT1twE
 
 # Solana Settings (Required for signing)
@@ -77,10 +77,10 @@ bun test
 
 ## 🤝 Resources
 
-- **Website**: [axnet.fun](https://axnet.fun)
+- **Website**: [axnet.tech](https://axnet.tech)
 - **Registry**: [8004.qnt.sh](https://8004.qnt.sh/)
 - **X (Twitter)**: [@axnetfun](https://x.com/axnetfun)
-- **MCP Endpoint**: `https://mcp.axnet.fun/sse`
+- **MCP Endpoint**: `https://mcp.axnet.tech/sse`
 
 ---
 

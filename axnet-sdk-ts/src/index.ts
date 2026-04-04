@@ -12,7 +12,7 @@ export interface AxnetSwapParams {
 }
 
 export class AxnetSDK {
-    constructor(private baseUrl: string = 'https://api.axnet.fun') { }
+    constructor(private baseUrl: string = 'https://api.axnet.tech') { }
 
     /**
      * Executes the full x402 swap flow: 

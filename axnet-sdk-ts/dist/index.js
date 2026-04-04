@@ -2,7 +2,7 @@
 import { VersionedTransaction } from "@solana/web3.js";
 import { Buffer } from "buffer";
 var AxnetSDK = class {
-  constructor(baseUrl = "https://api.axnet.fun") {
+  constructor(baseUrl = "https://api.axnet.tech") {
     this.baseUrl = baseUrl;
   }
   /**

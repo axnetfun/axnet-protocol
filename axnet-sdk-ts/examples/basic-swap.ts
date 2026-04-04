@@ -3,7 +3,7 @@ import { Keypair, VersionedTransaction } from '@solana/web3.js';
 import { HandshakeData } from '../src/types';
 
 async function startAgentSwap() {
-    const sdk = new AxnetSDK(); // Defaults to https://api.axnet.fun
+    const sdk = new AxnetSDK(); // Defaults to https://api.axnet.tech
 
     // In a real agent, this would be loaded from an ENV or Secret
     const agentWallet = Keypair.generate();

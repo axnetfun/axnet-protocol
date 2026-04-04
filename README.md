@@ -2,7 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/@axnetfun/plugin-axnet.svg)](https://www.npmjs.com/package/@axnetfun/plugin-axnet)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![smithery badge](https://smithery.ai/badge/axnet/core)](https://smithery.ai/servers/axnet/core)
+[![smithery badge](https://smithery.ai/badge/axnet/swap)](https://smithery.ai/servers/axnet/swap)
 
 **Axnet** is a stateless, keyless execution layer for Solana. It enables autonomous agents to integrate **Jupiter** liquidity via the **x402 (Payment Required)** protocol—removing the need for API keys, accounts, or centralized subscriptions.
 
@@ -66,8 +66,8 @@ The gateway is currently live. We are expanding our SDK support to simplify the 
 ### 🗓️ March/April 2026 Roadmap:
 - [x] **Registry**: Minted 8004 Identity NFT (`DEpPu...1twE`).
 - [x] **Gateway**: Dual-transaction execution live at `api.axnet.fun`.
-- [x] **ElizaOS Plugin**: Official `@elizaos/plugin-axnet` released.
-- [ ] `axnet-sdk-ts`: Official TypeScript client for bundle signing (Coming April 1st).
+- [ ] **ElizaOS Plugin**: Official `@elizaos/plugin-axnet` released.
+- [x] `axnet-sdk-ts`: Official TypeScript client for bundle signing (Coming April 1st).
 - [ ] `examples/python-agent`: Implementation for LangChain/AutoGPT.
 
 ---
